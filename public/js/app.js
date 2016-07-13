@@ -17,12 +17,12 @@ myApp.config(function($routeProvider, $locationProvider) {
             .otherwise({ redirectTo: '/' });
 
         $locationProvider.html5Mode(true);
-
     })
-    .run(function() {
+    .run(['$rootScope', '$http', function($rootScope, $http) {
 
-        console.log('helloWorld');
-        // $http.get('/api/auth').then(function(result) {
-        //     $rootScope.user = result.data || undefined;
-        // });
-    });
+        $http.get('/api/auth').then(function(result) {
+
+            console.log(result);
+            $rootScope.user = result.data || undefined;
+        });
+    }]);

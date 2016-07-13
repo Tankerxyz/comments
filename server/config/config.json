@@ -5,5 +5,11 @@
   },
   "database": {
     "uri": "mongodb://localhost/test"
+  },
+  "auth": {
+    "facebook": {
+      "app_id": 1760619024167393,
+      "app_secret": "473c2dff5f5e133ea6aff6feb2bb1ba5"
+    }
   }
 }
