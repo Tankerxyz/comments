@@ -1,0 +1,9 @@
+{
+  "server": {
+    "port": 3030,
+    "secret": "super-puper-secret"
+  },
+  "database": {
+    "uri": "mongodb://localhost/test"
+  }
+}

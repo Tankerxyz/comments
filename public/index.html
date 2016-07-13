@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <title ng-bind="pageName"></title>
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular-route/angular-route.min.js"></script>
+    <script src="vendor/angular-css.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/directives/auth.js"></script>
+    <script src="js/controllers/MainPageCtrl.js"></script>
+    <script src="js/controllers/CommentsCtrl.js"></script>
+</head>
+<body>
+    <ng-view></ng-view>
+</body>
+</html>
