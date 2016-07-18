@@ -4,7 +4,7 @@
     "secret": "super-puper-secret"
   },
   "database": {
-    "uri": "mongodb://localhost/test",
+    "uri": "mongodb://test:aoeuaoeu@ds023425.mlab.com:23425/comments",
     "main-group-id": "000000000000000000000000"
   },
   "auth": {
