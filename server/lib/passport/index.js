@@ -76,15 +76,10 @@ passport.use(new VkontakteStrategy({
 ));
 
 passport.serializeUser(function(user, done) {
-    console.log(user);
-
     done(null, user.user_id);
 });
 
 passport.deserializeUser(function(userId, done) {
-
-    console.log(userId);
-
     User.findOne({ user_id: userId }, {_id: 0, __v: 0}, function(err, user) {
         done(err, user);
     });

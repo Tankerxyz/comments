@@ -10,8 +10,9 @@ $ git clone https://github.com/Tankerxyz/comments.git
 $ cd comments
 $ npm i
 $ node app
-$ localhost:3030
 ```
+
+now go to -> localhost:3030 and enjoy 
 
 
 

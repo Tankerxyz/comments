@@ -61,7 +61,6 @@ module.exports = function (req, res, next) {
         msgGroup.messages.push(newMsg._id);
 
         msgGroup.save(function (err) {
-            console.log(arguments);
             cb(err);
         });
     }], function (err, result) {
