@@ -5,7 +5,7 @@ for liteit
 
 ### instructions:
 
-for install need: NodeJs v5.8.0, Npm v3.7.3
+for run my project need: NodeJs v5.8.0, Npm v3.7.3
 
 ```sh
 $ git clone https://github.com/Tankerxyz/comments.git
