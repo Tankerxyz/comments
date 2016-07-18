@@ -5,7 +5,7 @@ for liteit
 
 ### instructions:
 
-for run my project need: NodeJs v5.8.0, Npm v3.7.3
+for run my project need: NodeJs v5.8.0, Npm v3.7.3, Git
 (another versions i don't test)
 
 ```sh
