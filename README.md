@@ -12,7 +12,7 @@ $ npm i
 $ node app
 ```
 
-now go to -> localhost:3030 and enjoy 
+now go to -> localhost:3030 and enjoy
 
 
 

@@ -21,8 +21,8 @@ myApp.config(function($routeProvider, $locationProvider) {
             console.log('api/auth: ', result.data);
             $rootScope.user = result.data || undefined;
 
-            // if ($rootScope.user) {
-            //     $location.path('/comments');
-            // }
+            if ($rootScope.user) {
+                $location.path('/comments');
+            }
         });
     }]);
