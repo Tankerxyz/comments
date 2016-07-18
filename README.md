@@ -1,6 +1,8 @@
 ### comments
 for liteit
 
+NodeJs v5.8.0, Npm v3.7.3
+
 ----
 
 ### instructions:
