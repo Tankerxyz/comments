@@ -17,8 +17,9 @@ myApp.controller('CommentsCtrl', ['$rootScope', '$scope', '$http', '$compile', '
 
     function answerCb (result) {
         $scope.inputText = '';
+        $scope.sendState = $scope.sendStates.SEND;
         getAnswers();
-        console.log(res);
+        console.log(result);
     }
 
     function getAnswers() {

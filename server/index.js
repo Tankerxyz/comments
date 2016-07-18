@@ -12,7 +12,7 @@ async.series([function (cb) {
         if (err) throw err;
 
         if (!data) {
-            var mainMessageGroup = new MessageGroup({
+            var mainMessageGroup = new MessagesGroup({
                 _id: _MAIN_GROUP_ID
             });
 

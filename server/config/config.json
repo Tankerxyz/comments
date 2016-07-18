@@ -11,6 +11,14 @@
     "facebook": {
       "app_id": 1760619024167393,
       "app_secret": "473c2dff5f5e133ea6aff6feb2bb1ba5"
+    },
+    "google-plus": {
+      "app_id": "333526348016-ov6tg807p2v6es0ednud2u6jui27qd2h.apps.googleusercontent.com",
+      "app_secret": "XaZScjD_FW34QajTa90J2gtp"
+    },
+    "vkontakte": {
+      "app_id": "5552707",
+      "app_secret": "eVJMAdreJe81mnVkiURg"
     }
   }
 }

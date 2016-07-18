@@ -15,7 +15,15 @@ myApp.directive('auth', ['$rootScope', '$http', '$location', function ($rootScop
 
             $scope.authOnFacebook = function () {
                 window.location.pathname = 'api/auth/facebook';
-            }
+            };
+
+            $scope.authOnGoogle = function () {
+                window.location.pathname = 'api/auth/google';
+            };
+
+            $scope.authOnVkontakte = function () {
+                window.location.pathname = 'api/auth/vkontakte';
+            };
         }
     };
 }]);
