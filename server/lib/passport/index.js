@@ -54,7 +54,7 @@ passport.use(new GoogleStrategy({
         authHandler({
             username: profile.displayName,
             id: profile.id,
-            accountPath: profile._json.url,
+            accountPath: "http://plus.google.com/"+profile.id,
             avatarPath: profile.photos[0].value
         }, cb);
     }
