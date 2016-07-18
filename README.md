@@ -7,6 +7,11 @@ for liteit
 
 ```sh
 $ git clone https://github.com/Tankerxyz/comments.git
-$ npm install
+$ cd comments
+$ npm i
+$ node app
+$ localhost:3030
 ```
+
+
 
