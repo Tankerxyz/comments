@@ -6,7 +6,7 @@
                     <img ng-src="{{message.user.avatar_path}}" alt="{{message.user.username}}">
                 </a>
                 <span class="message-time" ng-bind="(message.created | date :'d MMMM yyyy \'at\' HH:mm')"></span>
-                <span class="message-username" ng-bind="message.user.username"></span>
+                <a ng-href="{{message.user.account_path}}" target="_blank" class="message-username" ng-bind="message.user.username"></a>
                 <a ng-if="user" class="message-reply" ng-click="setStateMessage(message, sendStates.REPLY)">Reply</a>
 
                 <i ng-if="user.user_id == message.user.user_id" class="close" ng-click="removeMessage(message)">&times;</i>

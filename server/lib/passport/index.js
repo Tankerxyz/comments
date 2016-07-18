@@ -8,10 +8,7 @@ var User = require('../../models/user');
 
 function authHandler(profile, cb) {
     User.findOne({user_id: profile.id}, {_id: 0}, function (err, user) {
-
-        if (err) {
-            throw err;
-        }
+        if (err) throw err;
 
         if (!user) {
             var newUser = new User({
@@ -22,20 +19,13 @@ function authHandler(profile, cb) {
             });
 
             newUser.save(function(err, data) {
-                if (err) {
-                    return cb(err);
-                }
+                if (err) throw err;
 
-                if (data) {
-                    return cb(null, user);
-                } else {
-                    return cb(true);
-                }
+                return cb(null, data);
             });
         } else {
             return cb(null, user);
         }
-
     });
 }
 
@@ -86,10 +76,15 @@ passport.use(new VkontakteStrategy({
 ));
 
 passport.serializeUser(function(user, done) {
+    console.log(user);
+
     done(null, user.user_id);
 });
 
 passport.deserializeUser(function(userId, done) {
+
+    console.log(userId);
+
     User.findOne({ user_id: userId }, {_id: 0, __v: 0}, function(err, user) {
         done(err, user);
     });

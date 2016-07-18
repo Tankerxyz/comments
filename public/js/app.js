@@ -1,7 +1,5 @@
 var myApp = angular.module('myApp', ["ngRoute", "door3.css"]);
 
-console.log(myApp);
-
 myApp.config(function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
@@ -19,13 +17,12 @@ myApp.config(function($routeProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
     })
     .run(['$rootScope', '$http', '$location', function($rootScope, $http, $location) {
-
         $http.get('/api/auth').then(function(result) {
             console.log('api/auth: ', result.data);
             $rootScope.user = result.data || undefined;
 
-            if ($rootScope.user) {
-                $location.path('/comments');
-            }
+            // if ($rootScope.user) {
+            //     $location.path('/comments');
+            // }
         });
     }]);
