@@ -1,27 +1,49 @@
 <div>
+    <script type="text/ng-template" id="categoryTree">
+        <span ng-bind="message.created | date :'yyyy-MM-dd HH:mm:ss'"></span>
+        <a ng-href="{{message.user.account_path}}" target="_blank">
+            <img ng-src="{{message.user.avatar_path}}" alt="{{message.user.username}}">
+        </a>
+        (<strong ng-bind="message.user.username"></strong>) : <span ng-bind="message.text"></span>
+        <span ng-if="user.user_id == message.user.user_id">
+            <button class="text-primary glyphicon glyphicon-pencil"
+                    ng-click="setStateMessage(message, sendStates.EDIT)"></button>
+            <button class="text-danger" ng-click="removeMessage(message)">&times;</button>
+        </span>
+        <a ng-click="setStateMessage(message, sendStates.REPLY)">Reply</a>
+        <ul ng-if="message.answers" >
+            <li ng-repeat="message in message.answers.messages track by $index" ng-include="'categoryTree'"></li>
+        </ul>
+    </script>
     <div class="container" style="background: lightblue; padding: 30px;">
         <div class="row">
             <auth></auth>
         </div>
+        <p ng-if="!user" class="text-center gray-text">*Для добавления и комментирования сообщений выполните вход</p>
         <div ng-if="user" class="row header" style="height: 230px;">
             <div class="col-md-9">
-                <textarea maxlength="2048"
+                <textarea ng-model="inputText"
+                          maxlength="2048"
                           contenteditable="false"
                           class="form-control"
                           required
                           placeholder="Write your message..."
                           rows="3"
                           style="resize: none;"></textarea>
+                <button ng-if="sendState !== sendStates.SEND" type="button" class="close" aria-label="Close" ng-click="resetSendState()"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="col-md-3">
-                <button class="btn btn-default btn-lg">Submit</button>
+                <figure>
+                    <img ng-src="{{user.avatar_path}}" alt="avatar">
+                    <figcaption ng-bind="user.username"></figcaption>
+                </figure>
+                <button class="btn btn-default btn-lg" ng-click="send(inputText)"
+                        ng-bind="sendState!=sendStates.EDIT ? 'Send' : 'Edit'"></button>
             </div>
         </div>
         <div class="row" style="background: white; border: 3px solid darkblue; border-radius: 3px; padding: 15px;">
             <ul class="list-unstyled">
-                <li ng-repeat="comment in comments">
-                    (<strong ng-bind="comment.username"></strong>) : <span ng-bind="comment.message"></span>
-                </li>
+                <li ng-if="answers" ng-repeat="message in answers.messages" ng-include="'categoryTree'"></li>
             </ul>
         </div>
     </div>

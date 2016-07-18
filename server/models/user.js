@@ -1,6 +1,3 @@
-var crypto = require('crypto');
-var util = require('util');
-
 var mongoose = require('../lib/mongoose');
 var Schema = mongoose.Schema;
 
@@ -13,6 +10,10 @@ var UserSchema = new Schema({
         type: String,
         required: true,
         unique: true
+    },
+    account_path: {
+        type: String,
+        required: true
     },
     avatar_path: {type: String},
     created: {

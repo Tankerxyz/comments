@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ["ngRoute", "door3.css"]);
+var myApp = angular.module('myApp', ["ngRoute", "door3.css", "ngSanitize"]);
 
 console.log(myApp);
 
@@ -18,11 +18,14 @@ myApp.config(function($routeProvider, $locationProvider) {
 
         $locationProvider.html5Mode(true);
     })
-    .run(['$rootScope', '$http', function($rootScope, $http) {
+    .run(['$rootScope', '$http', '$location', function($rootScope, $http, $location) {
 
         $http.get('/api/auth').then(function(result) {
-
-            console.log(result);
+            console.log('api/auth: ', result.data);
             $rootScope.user = result.data || undefined;
+
+            if ($rootScope.user) {
+                $location.path('/comments');
+            }
         });
     }]);

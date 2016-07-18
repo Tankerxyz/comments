@@ -4,7 +4,8 @@
     "secret": "super-puper-secret"
   },
   "database": {
-    "uri": "mongodb://localhost/test"
+    "uri": "mongodb://localhost/test",
+    "main-group-id": "000000000000000000000000"
   },
   "auth": {
     "facebook": {
