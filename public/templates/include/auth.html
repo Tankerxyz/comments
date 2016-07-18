@@ -1,7 +1,7 @@
-<div ng-if="!user" >
+<div ng-if="!user" ng-class="{'vertical-center' : centered}" >
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="margin-left: -15px; margin-bottom: 10px;">
                 <div class="btn-group btn-group-justified">
                     <div class="btn-group btn-group-lg">
                         <button class="btn btn-primary" ng-click="authOnFacebook()">Facebook</button>
@@ -17,10 +17,10 @@
         </div>
     </div>
 </div>
-<div ng-if="user" >
+<div ng-if="user" ng-class="{'vertical-center' : centered}">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" style="margin-left: -15px; margin-bottom: 10px;">
                 <div class="btn-group btn-group-justified">
                     <div class="btn-group btn-group-lg">
                         <button class="btn btn-primary" ng-click="logout()">Logout</button>

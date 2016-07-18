@@ -12,10 +12,7 @@ myApp.config(function($routeProvider, $locationProvider) {
             .when('/comments', {
                 templateUrl: 'templates/comments.html',
                 controller: 'CommentsCtrl',
-                css: 'css/comments.css',
-                data: {
-                    title: "Data Model"
-                }
+                css: 'css/comments.css'
             })
             .otherwise({ redirectTo: '/' });
 

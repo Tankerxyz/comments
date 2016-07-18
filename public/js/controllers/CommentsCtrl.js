@@ -15,10 +15,16 @@ myApp.controller('CommentsCtrl', ['$rootScope', '$scope', '$http', '$compile', '
 
     $scope.activeMessage;
 
+    function answerCb (result) {
+        $scope.inputText = '';
+        getAnswers();
+        console.log(res);
+    }
+
     function getAnswers() {
         $http.get('/api/get-main-group')
             .then(function (result) {
-                    $scope.answers = result.data;
+                    $scope.answers = angular.copy(result.data);
                     console.log(result.data);
                 },
                 function (err) {
@@ -34,36 +40,15 @@ myApp.controller('CommentsCtrl', ['$rootScope', '$scope', '$http', '$compile', '
             switch ($scope.sendState) {
                 case sendStates.SEND:
                     $http.put('/api/create-message', {text: text})
-                        .then(function (result) {
-                            $scope.inputText = '';
-                            getAnswers();
-                            console.log(result);
-                        },
-                        function (err) {
-                            console.error(err);
-                        });
+                        .then(answerCb);
                     break;
                 case sendStates.REPLY:
                     $http.put('/api/create-comment', { _id: $scope.activeMessage._id, text: text })
-                        .then(function (res) {
-                            $scope.inputText = '';
-                            getAnswers();
-                            console.log(res);
-                        },
-                        function (err) {
-                            console.error(err);
-                        });
+                        .then(answerCb);
                     break;
                 case sendStates.EDIT:
                     $http.post('/api/edit-comment', { _id: $scope.activeMessage._id, text: text })
-                        .then(function (res) {
-                            $scope.inputText = '';
-                            getAnswers();
-                            console.log(res);
-                        },
-                        function (err) {
-                            console.error(err);
-                        });
+                        .then(answerCb);
                     break;
                 default:
                     throw "Bad sendState: '"+$scope.sendState+"'";
@@ -89,6 +74,9 @@ myApp.controller('CommentsCtrl', ['$rootScope', '$scope', '$http', '$compile', '
     };
 
     $scope.setStateMessage = function (message, state) {
+        
+        $('#main-input').focus();
+        
         $scope.sendState = state;
         switch (state) {
             case sendStates.SEND:

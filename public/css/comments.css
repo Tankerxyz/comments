@@ -1,0 +1,155 @@
+
+ul.list,
+ul.list ul {
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+
+ul.list ul {
+    position:relative;
+    margin-left:10px;
+}
+
+ul.list ul:before {
+    content:"";
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:0;
+
+    border-left:1px solid #ccc;
+}
+
+ul.list li  {
+    position:relative;
+    margin:0;
+    padding:5px 15px;
+
+    text-decoration: none;
+    font-size:13px;
+    font-weight:normal;
+    line-height:20px;
+}
+
+ul.list li a {
+    position:relative;
+
+    cursor: pointer;
+    color: #d5d5d5;
+    text-decoration: none;
+    font-size:14px;
+    font-weight:bold;
+    line-height:20px;
+}
+
+ul.list li a:hover {
+    color: #999;
+}
+
+ul.list ul li:before {
+    content:"";
+    display:block;
+    position:absolute;
+    top:10px;
+    left: 0;
+    width:15px;
+    height:0;
+
+    border-top:1px solid #ccc;
+}
+
+ul.list ul li:last-child:before {
+    top: 28px;
+    bottom: 0;
+    height: auto;
+
+    background: white;
+}
+
+.message a img {
+    height: 50px;
+    width: 50px;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.2);
+    border: 1px solid #f0f0f0;
+}
+
+.message .message-time {
+    position: absolute;
+    top: -2px;
+    font-size: 10px;
+    color: #666;
+}
+
+.message .message-username {
+    font-family: "Arial", sans-serif;
+    font-size: 15px;
+    color: #555;
+}
+
+.message .message-info {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.message .message-reply {
+    position: absolute;
+    bottom: -2px;
+    left: 55px;
+}
+
+.message-info > i.close {
+    float: none;
+    top: -7px;
+    position: absolute;
+}
+
+.message-text i {
+    font-size: 12px;
+}
+
+.reset-state {
+    position: absolute;
+    right: 20px;
+}
+
+.answers-list {
+    background: white;
+    padding: 15px;
+}
+
+.header {
+    height: 150px;
+}
+
+#main-input {
+    height: 125px;
+}
+
+.header .input-area button {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+}
+
+.border-inside {
+    border: 3px solid #6DB2C8;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 3px rgba(0,0,0,0.2) inset;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 990px) {
+    .main-user-block {
+        display: none;
+    }
+}

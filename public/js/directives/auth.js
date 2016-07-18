@@ -2,12 +2,11 @@ myApp.directive('auth', ['$rootScope', '$http', '$location', function ($rootScop
     return {
         restrict: 'AE',
         templateUrl: '/templates/include/auth.html',
-        link: function ($scope, $elm, $attr) {
+        link: function ($scope, $elm, $attrs) {
+            $scope.centered = $attrs['center'];
 
             $scope.logout = function () {
                 $http.get('/api/logout').then(function(result) {
-                    console.log(result);
-                    $location.path('/');
                     $rootScope.user = undefined;
                 },function (err) {
                     console.error(err);
