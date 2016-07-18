@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ["ngRoute", "door3.css", "ngSanitize"]);
+var myApp = angular.module('myApp', ["ngRoute", "door3.css"]);
 
 console.log(myApp);
 
