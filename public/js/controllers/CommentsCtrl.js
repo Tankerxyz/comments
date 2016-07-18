@@ -34,6 +34,7 @@ myApp.controller('CommentsCtrl', ['$scope', '$http', '$compile', '$sce', functio
                 case sendStates.SEND:
                     $http.put('/api/create-message', {text: text})
                         .then(function (result) {
+                            $scope.inputText = '';
                             getAnswers();
                             console.log(result);
                         },
@@ -44,6 +45,7 @@ myApp.controller('CommentsCtrl', ['$scope', '$http', '$compile', '$sce', functio
                 case sendStates.REPLY:
                     $http.put('/api/create-comment', { _id: $scope.activeMessage._id, text: text })
                         .then(function (res) {
+                            $scope.inputText = '';
                             getAnswers();
                             console.log(res);
                         },
@@ -54,6 +56,7 @@ myApp.controller('CommentsCtrl', ['$scope', '$http', '$compile', '$sce', functio
                 case sendStates.EDIT:
                     $http.post('/api/edit-comment', { _id: $scope.activeMessage._id, text: text })
                         .then(function (res) {
+                            $scope.inputText = '';
                             getAnswers();
                             console.log(res);
                         },
@@ -62,11 +65,9 @@ myApp.controller('CommentsCtrl', ['$scope', '$http', '$compile', '$sce', functio
                         });
                     break;
                 default:
-                    throw "Bat sendState: '"+$scope.sendState+"'";
+                    throw "Bad sendState: '"+$scope.sendState+"'";
             }
         }
-
-
     };
     
     $scope.resetSendState = function () {

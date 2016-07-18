@@ -22,7 +22,7 @@
         <p ng-if="!user" class="text-center gray-text">*Для добавления и комментирования сообщений выполните вход</p>
         <div ng-if="user" class="row header" style="height: 230px;">
             <div class="col-md-9">
-                <textarea ng-model="inputText"
+                <textarea ng-model="$parent.inputText"
                           maxlength="2048"
                           contenteditable="false"
                           class="form-control"
