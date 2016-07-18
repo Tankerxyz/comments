@@ -1,3 +1,3 @@
-myApp.controller('MainPageCtrl', ['$scope', function($scope) {
-    
+myApp.controller('MainPageCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
+    $rootScope.title = 'Login';
 }]);

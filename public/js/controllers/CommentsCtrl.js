@@ -1,5 +1,6 @@
-myApp.controller('CommentsCtrl', ['$scope', '$http', '$compile', '$sce', function($scope, $http, $compile, $sce) {
+myApp.controller('CommentsCtrl', ['$rootScope', '$scope', '$http', '$compile', '$sce', function($rootScope, $scope, $http, $compile, $sce) {
 
+    $rootScope.title = 'Comments';
     $scope.inputText = '';
 
     var sendStates = {
