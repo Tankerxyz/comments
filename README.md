@@ -1,11 +1,11 @@
 ### comments
 for liteit
 
-NodeJs v5.8.0, Npm v3.7.3
-
 ----
 
 ### instructions:
+
+for install need: NodeJs v5.8.0, Npm v3.7.3
 
 ```sh
 $ git clone https://github.com/Tankerxyz/comments.git
