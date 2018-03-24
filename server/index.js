@@ -2,6 +2,7 @@ var config = require('./config');
 var app = require('./lib/app');
 var async = require('async');
 var MessagesGroup = require('./models/messages-group');
+var PORT = process.env.PORT || '3030';
 
 _MAIN_GROUP_ID = config.get('database:main-group-id');
 
@@ -24,7 +25,7 @@ async.series([function (cb) {
 }], function (err) {
     if (err) throw err;
 
-    app.listen(config.get('server:port'), function() {
-        console.log('Server is listerning on port ' + config.get('server:port'));
+    app.listen(PORT, function() {
+        console.log('Server is listerning on port ' + PORT);
     });
 });
